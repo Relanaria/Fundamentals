@@ -1,5 +1,5 @@
 function sumDigits(num) {
-  let Str = num.toString();
+  let Str = String(num);
   let sum = 0;
 
   for (let i = 0; i < Str.length; i++) {
