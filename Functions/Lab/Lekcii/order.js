@@ -1,7 +1,7 @@
 function orders(product, quantity) {
-  switch (product) {
+  switch (product){
     case "coffee":
-      console.log((quantity * (1.5)).toFixed(2));
+      console.log((quantity * 1.5).toFixed(2));
       break;
     case "water":
       console.log((quantity * 1).toFixed(2));
