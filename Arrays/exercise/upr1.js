@@ -8,7 +8,7 @@ function addSubtract(arr) {
     } else {
       arr[i] = arr[i] - i;
     }
-
+ 
     modifiesSum += arr[i];
   }
 
