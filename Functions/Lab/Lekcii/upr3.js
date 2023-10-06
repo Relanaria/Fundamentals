@@ -1,8 +1,8 @@
 function repeatString(str, n) {
   console.log(str.repeat(n));
 }
-let repeated = repeatString("abc", 3);
-console.log(repeated);
+// let repeated = String.repeat("abc", 3);
+// console.log(repeated);
 
 function repeat(str, n) {
   let result = "";

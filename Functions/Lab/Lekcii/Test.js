@@ -1,25 +1,25 @@
-let printText = function (text) {
-  console.log(text);
-};
+// let printText = function (text) {
+//   console.log(text);
+// };
 
-printText("dobri");
+// printText("dobri");
 
-function countDown(x) {
-  console.log(x);
-  if (x > 0) {
-    countDown(x - 1);
-  }
-}
+// function countDown(x) {
+//   console.log(x);
+//   if (x > 0) {
+//     countDown(x - 1);
+//   }
+// }
 
-countDown(5);
+// countDown(5);
 
-// function without parameters
-function printHeader() {
-  console.log("~~~- {@} -~~~");
-  console.log("~- Certificate -~");
-  console.log("~~~- ~---~ -~~~");
-}
-printHeader(); // Output is always the same
+// // function without parameters
+// function printHeader() {
+//   console.log("~~~- {@} -~~~");
+//   console.log("~- Certificate -~");
+//   console.log("~~~- ~---~ -~~~");
+// }
+// printHeader(); // Output is always the same
 
 function readFullName(firstName, lastName) {
   return firstName + " " + lastName;

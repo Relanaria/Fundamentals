@@ -66,6 +66,7 @@ function passwordValidator(str) {
   }
 }
 
-// passwordValidator('logIn')
-passwordValidator('000000')
+passwordValidator('logIn')
+// passwordValidator('000000')
 // passwordValidator("Pa$s$s");
+
