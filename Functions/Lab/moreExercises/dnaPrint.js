@@ -1,24 +1,25 @@
 function printDNA(number) {
-  let combinations = ["A", "T", "C", "G", "T", "T", "A", "G", "G", "G"];
-  let dnaHolder1 = "";
-  let dnaHolder2 = "";
+  let dnaSequence = ["A", "T", "C", "G", "T", "T", "A", "G", "G", "G"];
+  
+  let dnaHelixLeftSide = "";
+  let dnaHelixRigthSide = "";
 
   for (let i = 1; i < number + 1; i++) {
-    dnaHolder1 = combinations.shift();
-    dnaHolder2 = combinations.shift();
+    dnaHelixLeftSide = dnaSequence.shift();
+    dnaHelixRigthSide = dnaSequence.shift();
 
     if (i === 1 || i % 4 === 1) {
-      console.log(`**${dnaHolder1}${dnaHolder2}**`);
+      console.log(`**${dnaHelixLeftSide}${dnaHelixRigthSide}**`);
     } else if (i === 2 || i % 4 === 2) {
-      console.log(`*${dnaHolder1}--${dnaHolder2}*`);
+      console.log(`*${dnaHelixLeftSide}--${dnaHelixRigthSide}*`);
     } else if (i === 3 || i % 4 === 3) {
-      console.log(`${dnaHolder1}----${dnaHolder2}`);
+      console.log(`${dnaHelixLeftSide}----${dnaHelixRigthSide}`);
     } else if (i === 4 || i % 4 === 0) {
-      console.log(`*${dnaHolder1}--${dnaHolder2}*`);
+      console.log(`*${dnaHelixLeftSide}--${dnaHelixRigthSide}*`);
     }
 
-    combinations.push(dnaHolder1);
-    combinations.push(dnaHolder2);
+    dnaSequence.push(dnaHelixLeftSide);
+    dnaSequence.push(dnaHelixRigthSide);
   }
 }
 
