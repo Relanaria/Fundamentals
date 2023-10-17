@@ -6,8 +6,7 @@ function sorting(arr) {
   let length = sortedArr.length / 2;
 
   for (let i = 0; i < length; i++) {
-    newArangedArr.push(sortedArr.pop());
-    newArangedArr.push(sortedArr.shift());
+    newArangedArr.push(sortedArr.pop(),sortedArr.shift());
   }
 
   console.log(newArangedArr.join(" "));
