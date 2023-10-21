@@ -33,28 +33,26 @@ function craft(array) {
         }
         break;
       case "Renew":
-        if (inventory.includes(material)){
-            index = inventory.indexOf(material);
-            let temp = inventory.splice(index, 1);
-            inventory.push(temp);
+        if (inventory.includes(material)) {
+          index = inventory.indexOf(material);
+          let temp = inventory.splice(index, 1);
+          inventory.push(temp);
         }
         break;
     }
   }
 }
 
-craft([ 
+craft([
+  "Iron, Sword",
 
-    'Iron, Sword', 
-  
-    'Drop - Bronze', 
-  
-    'Combine Items - Sword:Bow', 
-  
-    'Renew - Iron', 
-  
-    'Craft!' 
-  
-  ] );
+  "Drop - Bronze",
+
+  "Combine Items - Sword:Bow",
+
+  "Renew - Iron",
+
+  "Craft!",
+]);
 // "Collect - Gold",
 //   "Drop - Wood",

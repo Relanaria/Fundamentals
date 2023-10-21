@@ -13,7 +13,7 @@ function modifyElements(arr) {
         break;
 
       case "multiply":
-        multiply(transformedArray, Number(index1), Number(index2))
+        multiply(transformedArray, Number(index1), Number(index2));
 
         break;
       case "decrease":
@@ -29,26 +29,24 @@ function modifyElements(arr) {
     array[index2] = temp;
   }
 
-  function multiply(array,index1,index2){
+  function multiply(array, index1, index2) {
     let temp = array[index1];
     array[index1] = temp * array[index2];
   }
 }
 
-modifyElements([ 
+modifyElements([
+  "1 2 3 4",
 
-    '1 2 3 4', 
-  
-    'swap 0 1', 
-  
-    'swap 1 2', 
-  
-    'swap 2 3', 
-  
-    'multiply 1 2', 
-  
-    'decrease', 
-  
-    'end' 
-  
-  ] );
+  "swap 0 1",
+
+  "swap 1 2",
+
+  "swap 2 3",
+
+  "multiply 1 2",
+
+  "decrease",
+
+  "end",
+]);

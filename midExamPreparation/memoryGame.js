@@ -40,4 +40,4 @@ function memoryGame(array) {
 
 // memoryGame(["a 2 4 a 2 4", "0 1", "0 2", "0 1", "0 1", "end"]);
 // memoryGame(["1 1 2 2 3 3 4 4 5 5", "1 0", "-1 0", "1 0", "1 0", "1 0", "end"]);
-memoryGame(["a 2 4 a 2 4", "3 3", "0 2", "0 1", "0 1", "end"]);
+memoryGame(["a 2 4 a 2 4", "7 3", "0 2", "0 1", "0 1", "end"]);
