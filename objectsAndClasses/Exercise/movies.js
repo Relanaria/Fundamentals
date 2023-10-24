@@ -1,4 +1,4 @@
-function movie(arr) {
+function movies(arr) {
   let movies = [];
 
   class kino {
@@ -9,14 +9,10 @@ function movie(arr) {
     }
   }
 
-  for (const element of arr) {
-    switch (key) {
-      case value:
-        break;
+  movies.push(new kino("kiro", "kirev", 5))
 
-      default:
-        break;
-    }
+  for (const element of arr) {
+    console.log(element.name);
   }
 }
 

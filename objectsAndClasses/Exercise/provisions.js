@@ -1,5 +1,6 @@
 function storeProvisions(array, array2) {
   let store = [];
+  let flagCheck = false;
 
   class Inventory {
     constructor(item, quantity) {
@@ -19,15 +20,27 @@ function storeProvisions(array, array2) {
     let item = array2[j];
     let quantity = +array2[j + 1];
 
-    let existingProduct = store.find((product) => product.item === item);
-
-    if (existingProduct) {
-      existingProduct.quantity += quantity;
-    } else {
-      const newProduct = new Inventory(item, quantity);
-      store.push(newProduct);
+    for (const key of store) {
+      if (key.item === item) {
+        key.quantity += quantity;
+        flagCheck = true;
+      }
     }
+    if (!flagCheck) {
+      store.push(new Inventory(item, quantity));
+    }
+
+    flagCheck = false;
   }
 
   store.forEach((i) => console.log(`${i.item} -> ${i.quantity}`));
 }
+
+storeProvisions([
+  'Salt', '2', 'Fanta', '4', 'Apple', '14', 
+  'Water', '4', 'Juice', '5'
+  ],
+  [
+  'Sugar', '44', 'Oil', '12', 'Apple', '7', 
+  'Tomatoes', '7', 'Bananas', '30'
+  ])
