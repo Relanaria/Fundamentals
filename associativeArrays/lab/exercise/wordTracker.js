@@ -6,8 +6,7 @@ function wordTracker(arr) {
     wordsTracked.set(word, 0);
     for (const sentence of arr) {
       if (sentence.toLowerCase() === word) {
-        let current = wordsTracked.get(word) + 1;
-        wordsTracked.set(word, current);
+        wordsTracked.set(word, wordsTracked.get(word) + 1);
       }
     }
   }

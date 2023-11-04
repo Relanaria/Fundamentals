@@ -1,42 +1,49 @@
 function picoloo(arr) {
-  let parkingLot = {};
+  let obj = {};
 
-  for (const token of arr) {
-    let [direction, carNumber] = token.split(", ");
+  obj = arr.reduce((acc, cur) => {
+    let [command, carNumber] = cur.split(", ");
 
-    if (direction === "IN") {
-      let joinedArr = carNumber.split("");
-      let number = joinedArr.splice(2, 4).join("");
-      number = +number;
-      parkingLot[carNumber] = number;
+    if (acc.hasOwnProperty(carNumber)) {
+      if (command === "OUT") {
+        acc[carNumber] = "out";
+      } else if (command === "IN") {
+        acc[carNumber] = "parked";
+      }
     } else {
-      if (parkingLot.hasOwnProperty(carNumber)) {
-        delete parkingLot[carNumber];
+      if (command === "IN") {
+        acc[carNumber] = "parked";
       }
     }
-  }
 
-  let entries = Object.entries(parkingLot);
-  let sorted = entries.sort((a, b) => a[1] - b[1]);
-  let final = Object.fromEntries(sorted);
+    return acc;
+  }, {});
 
-  if (JSON.stringify(final) === "{}") {
-    console.log("Parking Lot is Empty");
+  obj = Object.entries(obj)
+    .filter(([carNumber, status]) => {
+      if (status === "parked") {
+        return carNumber;
+      }
+    })
+    .map((el) => el[0])
+    .sort((a, b) => a.localeCompare(b));
+
+  if (obj.length > 0) {
+    console.log(obj.join("\n"));
   } else {
-    for (const key in final) {
-      console.log(key);
-    }
+    console.log("Parking Lot is Empty");
   }
 }
 
-picoloo(['IN, CA2844AA',
-'IN, CA1234TA',
-'OUT, CA2844AA',
-'IN, CA9999TT',
-'IN, CA2866HI',
-'OUT, CA1234TA',
-'IN, CA2844AA',
-'OUT, CA2866HI',
-'IN, CA9876HH',
-'IN, CA2822UU',]
-);
+picoloo([
+  "IN, CA2844AA",
+  "IN, CA1234TA",
+  "OUT, CA2844AA",
+  "IN, CA9999TT",
+  "IN, CA2866HI",
+  "OUT, CA1234TA",
+  "IN, CA2844AA",
+  "OUT, CA2866HI",
+  "IN, CA9876HH",
+  "IN, CA2822UU",
+]);

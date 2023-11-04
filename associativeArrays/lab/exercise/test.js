@@ -1,50 +1,11 @@
-function solve(input) {
-    let obj = {};
 
-    obj = input.reduce((acc, cur) => {
-        let [command, carNumber] = cur.split(', ');
 
-        if (acc.hasOwnProperty(carNumber)) {
-            if (command === 'OUT') {
-                acc[carNumber] = 'out';
-            }else if (command === 'IN') {
-                acc[carNumber] = 'parked';
-            }
-        } else {
-            if (command === 'IN') {
-                acc[carNumber] = 'parked';
-            }
-        }
+let test = "hIK9Yo0h";
 
-        return acc;
-    }, {});
+let digit = Number(test[0]);
 
-    obj = Object.entries(obj)
-        .filter(([carNumber, status]) => {
+digit += 5;
 
-            if (status ===  'parked') {
-                return carNumber;
-            }
-        })
-        .map(el => el[0])
-        .sort((a, b) => a.localeCompare(b))
-
-    if (obj.length > 0) {
-        console.log(obj.join('\n'));
-    } else {
-        console.log('Parking Lot is Empty');
-    }
+if(digit === NaN){
+    console.log("da");
 }
-
-
-solve(['IN, CA2844AA',
-'IN, CA1234TA',
-'OUT, CA2844AA',
-'IN, CA9999TT',
-'IN, CA2866HI',
-'OUT, CA1234TA',
-'IN, CA2844AA',
-'OUT, CA2866HI',
-'IN, CA9876HH',
-'IN, CA2822UU']
-)
