@@ -9,3 +9,5 @@ digit += 5;
 if(digit === NaN){
     console.log("da");
 }
+
+// ...array spread operator

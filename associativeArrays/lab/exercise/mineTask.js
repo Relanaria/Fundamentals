@@ -5,12 +5,11 @@ function miners(arr) {
     let matiral = arr[i];
     let quantity = Number(arr[i + 1]);
 
-    if(!storage.has(matiral)){
-        storage.set(matiral, quantity);
-    }else{
-        storage.set(matiral, storage.get(matiral) + quantity);
+    if (!storage.has(matiral)) {
+      storage.set(matiral, quantity);
+    } else {
+      storage.set(matiral, storage.get(matiral) + quantity);
     }
-    
   }
 
   storage.forEach((quantity, material) => {
@@ -18,15 +17,4 @@ function miners(arr) {
   });
 }
 
-miners([
-    'gold',
-    '155',
-    'silver',
-    '10',
-    'copper',
-    '17',
-    'gold',
-    '15'
-    ]
-    
-    );
+miners(["gold", "155", "silver", "10", "copper", "17", "gold", "15"]);
