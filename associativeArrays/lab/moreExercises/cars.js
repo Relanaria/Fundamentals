@@ -16,9 +16,9 @@ function cars(arr) {
     console.log(`Garage № ${gar}`);
     for (const model of cars) {
        let str = model;
-      while (str.includes(": ")) {
-        str = str.replace(": ", " - ");
-      }
+ 
+        str = str.replaceAll(": ", " - ");
+     
       console.log(`--- ${str}`);
     }
   }
