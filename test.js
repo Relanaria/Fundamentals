@@ -1,15 +1,25 @@
-const fruits = [5,3,2,1,5,11,7];
-fruits.sort();
+function solve(input) {
+  let text = input[0];
+  let words = input[1];
+  let count = 0;
+  for (let char of text) {
+    if (char === "_") {
+      count++;
+    } else if (char !== "_" && count > 0) {
+      for (let word of words) {
+        if (word.length === count) {
+          let toReplace = "_".repeat(count);
+          text = text.replace(toReplace, word);
+          count = 0;
+          break;
+        }
+      }
+    }
+  }
+  console.log(text);
+}
 
- 
-console.log(fruits); //тук се отпечатва  [ 'Orange', 'Banana' ]
- 
-///////////////////////////////////////////////////////////////////////////////
- 
-const fruits2 = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
-fruits2.splice(2).reverse();
- 
-console.log(fruits2); 
-
-let arr = array.shift().split(' ').map(Number);
-let [command, firstNum, secondNum] = array[i].split(" ");
+solve([
+  "Hi, grandma! I'm so ____ to write to you. ______ the winter vacation, so _______ things happened. My dad bought me a sled. Mom started a new job as a __________. My brother's ankle is ________, and now it bothers me even more. Every night Mom cooks ___ on your recipe because it is the most delicious. I hope this year Santa will _____ me a robot.",
+  ["pie", "bring", "glad", "During", "amazing", "pharmacist", "sprained"],
+]);
