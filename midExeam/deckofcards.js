@@ -4,11 +4,8 @@ function deckOfCards(arr) {
   let count = 0;
   let index = 0;
 
-  
   for (const doTo of arr) {
     let [command, indexName, cardName] = doTo.split(", ");
-
-    
 
     count++;
 
@@ -34,7 +31,7 @@ function deckOfCards(arr) {
         break;
 
       case "Remove At":
-        index = Number(indexName)
+        index = Number(indexName);
         if (index >= 0 && index < deck.length) {
           deck.splice(index, 1);
           console.log("Card successfully removed");
@@ -44,16 +41,14 @@ function deckOfCards(arr) {
         break;
 
       case "Insert":
-        index = Number(indexName)
+        index = Number(indexName);
         if (index >= 0 && index < deck.length) {
-
           if (deck.includes(cardName)) {
             console.log("Card is already added");
           } else {
             deck.splice(index, 0, cardName);
             console.log("Card successfully added");
           }
-
         } else {
           console.log("Index out of range");
         }
