@@ -1,112 +1,42 @@
-function solve(input) {
-  let num = +input.shift();
-  let index = 0;
-  let arrObjects = [];
-  let current = input.shift();
+// function solve(input){
 
-  while (index < num) {
-    let obj = {};
-    let [hero, hitPoints, manaPoints] = current.split(" ");
-    hitPoints = +hitPoints;
-    manaPoints = +manaPoints;
+//     let arrayOfTickets = input.split(/[, ]+/g)
 
-    obj = {
-      hero,
-      hitPoints,
-      manaPoints,
-    };
+//     let winningTick = /[$@#^]{6,9}/gm;
+//     let jackpot = /[$@#^]{10}/gm;
 
-    arrObjects.push(obj);
-    current = input.shift();
-    index++;
-  }
+//     for (const ticket of arrayOfTickets) {
 
-  while (current !== "End") {
-    if (current.includes("CastSpell")) {
-      let [commandName, heroName, manaPoinstNeeded, spellName] =
-        current.split(" - ");
-      arrObjects.filter((el) => {
-        if (el.hero == heroName) {
-          let result = el.manaPoints - manaPoinstNeeded;
 
-          // if (el.manaPoints >= manaPoinstNeeded && el.manaPoints <= 200) {
-          if (el.manaPoints >= manaPoinstNeeded) {
-            el.manaPoints -= manaPoinstNeeded;
-            console.log(
-              `${el.hero} has successfully cast ${spellName} and now has ${result} MP!`
-            );
-          } else {
-            console.log(
-              `${el.hero} does not have enough MP to cast ${spellName}!`
-            );
-          }
-        }
-      });
-    } else if (current.includes("TakeDamage")) {
-      let [commandName, heroName, damage, attacker] = current.split(" - ");
-      arrObjects.filter((el) => {
-        if (el.hero == heroName) {
-          damage = +damage;
+//         if(ticket.length === 20){
+//             let leftHalf = ticket.substring(0,10);
+//             let rightHalf = ticket.substring(10);
+        
+            
+//             console.log(jackpot.test(rightHalf), jackpot.test(leftHalf));
+//             console.log(jackpot.test(leftHalf), jackpot.test(rightHalf));
+//             if(jackpot.test(leftHalf) && jackpot.test(rightHalf)){
+//                 console.log("jackpot");
+//             }else{
+//                 console.log("5leva");
+//             }
+//         }else{
+//             console.log("invalid ticket");
+//         }
+       
+        
+//     }
 
-          if (el.hitPoints > damage) {
-            el.hitPoints -= damage;
-            console.log(
-              `${el.hero} was hit for ${damage} HP by ${attacker} and now has ${el.hitPoints} HP left!`
-            );
-          } else {
-            console.log(`${el.hero} has been killed by ${attacker}!`);
-            let index = arrObjects.indexOf(el);
-            arrObjects.splice(index, 1);
-          }
-        }
-      });
-    } else if (current.includes("Heal")) {
-      let [commandName, heroName, amount] = current.split(" - ");
-      amount = +amount;
-      arrObjects.filter((el) => {
-        if (el.hero == heroName) {
-          let result = el.hitPoints + amount;
-          if (result <= 100) {
-            el.hitPoints += amount;
-            console.log(`${el.hero} healed for ${amount} HP!`);
-          } else if (result > 100) {
-            // let residue = result - 100;
-            // amount = Math.abs(amount - residue);
-            let residue = 100 - el.hitPoints;
-            el.hitPoints = 100;
-            console.log(`${el.hero} healed for ${residue} HP!`);
-            // console.log(`${el.hero} healed for ${amount} HP!`)
-          }
-        }
-      });
-    } else if (current.includes("Recharge")) {
-      let [commandName, heroName, amount] = current.split(" - ");
-      amount = +amount;
-      arrObjects.filter((el) => {
-        if (el.hero == heroName) {
-          let result = el.manaPoints + amount;
+// }
 
-          if (result > 200) {
-            // let residue = result - amount;
-            // amount = Math.abs(amount - residue);
-            let residue = 200 - el.manaPoints;
-            el.manaPoints = 200;
-            console.log(`${el.hero} recharged for ${residue} MP!`);
-          } else {
-            el.manaPoints += amount;
-            console.log(`${el.hero} recharged for ${amount} MP!`);
-          }
-        }
-      });
-    }
+let jackpot = /[$@#^]{10}/gm;
 
-    current = input.shift();
-  }
+let ticket = '$$$$$$$$$$$$$$$$$$$$';
+let leftHalf = ticket.substring(0,10);
+let rightHalf = ticket.substring(10);
+console.log(leftHalf);
+console.log(rightHalf);
 
-  for (let line of arrObjects) {
-    console.log(`${line.hero}
-  HP: ${line.hitPoints}
-  MP: ${line.manaPoints}`);
-  }
-  //console.log(arrObjects)
-}
+console.log(jackpot.test(rightHalf), jackpot.test(leftHalf));
+
+// solve('$$$$$$$$$$$$$$$$$$$$')
